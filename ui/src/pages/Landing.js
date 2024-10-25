@@ -11,14 +11,11 @@ import Testimonials from '../components/Testimonials';
 function Landing() {
     return (
         <>
-            <Navbar />
             <Banner />
             <HowItWorks />
             <WhyChooseUs />
             <SpecialityServices />
             <Blogs />
-            <Testimonials />
-            <Footer />
         </>
 
     );

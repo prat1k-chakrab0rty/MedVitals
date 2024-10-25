@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -6,28 +6,40 @@ import Button from '@mui/material/Button';
 import BrandLogo from '../assets/images/Logo.png';
 import BrandName from '../assets/images/BrandName.png';
 import Logo from './Logo';
+import { Link, useLocation } from 'react-router-dom';
 
 const pages = ['Home', 'About Us', 'Contact Us'];
+const links = ['/', '/about-us', '/contact-us'];
 
 function Navbar() {
-  const [activePage, setactivePage] = useState("Home");
+  const location = useLocation();
+  const [activePage, setactivePage] = useState("");
+
+  // Update active page based on the current path
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const currentPage = pages[links.indexOf(currentPath)] || "Home";
+    setactivePage(currentPage);
+  }, [location.pathname]);
 
   return (
-    <Box>
+    <Box sx={{height: "72px"}}>
       <AppBar sx={{ backgroundColor: '#ffffff', color: '#a49f9c' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: '100', marginX: 25 }}>
-          <Logo logo={BrandLogo} title={BrandName} brightVal={"100%"}/>
+          <Logo logo={BrandLogo} title={BrandName} brightVal={"100%"} />
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
-            {pages.map((page) => (
-              <Typography noWrap component="a" key={page} sx={{ textAlign: 'center', cursor: 'pointer', fontWeight: 600, color: activePage === page ? '#004a6a' : '#a49f9c' }}>{page}</Typography>
+            {pages.map((page, i) => (
+              <Link key={page} onClick={() => setactivePage(page)} to={links[i]} style={{ textDecoration: 'none' }}>
+                <Typography noWrap sx={{ textAlign: 'center', cursor: 'pointer', fontWeight: 600, color: activePage === page ? '#004a6a' : '#a49f9c' }}>{page}</Typography>
+              </Link>
             ))}
           </Box>
           <Box>
             <Button sx={{ backgroundColor: '#00b7b4', marginY: 2, fontSize: 13, textTransform: 'none', color: '#ffffff' }}>Sign up/Sign in</Button>
           </Box>
         </Box>
-      </AppBar>
-    </Box>
+      </AppBar >
+    </Box >
   );
 }
 export default Navbar;
