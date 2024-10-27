@@ -10,7 +10,7 @@ import { Link, useLocation } from 'react-router-dom';
 import SignInDrawer from './SignInDrawer';
 
 const pages = ['Home', 'About Us', 'Contact Us'];
-const links = ['/', '/about-us', '/contact-us'];
+const links = ['/', '/app/dashboard', '/contact-us'];
 
 function Navbar() {
   const location = useLocation();
