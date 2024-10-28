@@ -7,18 +7,18 @@ import AppNavbar from './components/AppNavbar';
 function Layout() {
     return (
         <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Grid xs={12} sx={{ flexShrink: 0 }}>
-            <AppNavbar />
-        </Grid>
-        <Grid container sx={{ flexGrow: 1, overflow: 'auto' }}>
-            <Grid xs={1.5} sx={{ height: '100%', overflowY: 'hidden' }}>
-                <Sidebar />
+            <Grid xs={12} sx={{ flexShrink: 0 }}>
+                <AppNavbar />
             </Grid>
-            <Grid xs={10.5} sx={{ height: '100%', overflowY: 'auto' }}>
-                <Outlet />
+            <Grid container sx={{ flexGrow: 1, overflow: 'auto' }}>
+                <Grid xs={1.5} sx={{ height: '100%', overflowY: 'hidden', flexShrink: 0 }}>
+                    <Sidebar />
+                </Grid>
+                <Grid xs={10.5} sx={{ height: '100%', flexGrow: 1, overflowY: 'auto', padding: 2, backgroundColor: '#f5f5f9' }}>
+                    <Outlet />
+                </Grid>
             </Grid>
-        </Grid>
-    </Box>
+        </Box>
     )
 }
 
