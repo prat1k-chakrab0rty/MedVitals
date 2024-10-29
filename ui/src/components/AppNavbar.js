@@ -15,7 +15,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from 'react-router-dom';
 
 
-function AppNavbar() {
+function AppNavbar({moduleNameVisibility,setmoduleNameVisibility}) {
 
   const [anchorElementForNotificationMenu, setAnchorElementForNotificationMenu] = useState(null);
   const [anchorElementForProfileMenu, setAnchorElementForProfileMenu] = useState(null);
@@ -41,7 +41,7 @@ function AppNavbar() {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: '100', marginX: 2, alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <Logo logo={BrandLogo} title={BrandName} brightVal={"100%"} gapVal={4} />
-            <MenuIcon sx={{ cursor: 'pointer' }} />
+            <MenuIcon onClick={()=>setmoduleNameVisibility(!moduleNameVisibility)} sx={{ cursor: 'pointer' }} />
           </Box>
           <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

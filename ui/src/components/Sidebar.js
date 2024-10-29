@@ -9,7 +9,7 @@ import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import PaymentIcon from '@mui/icons-material/Payment';
 import { Link, useLocation } from 'react-router-dom';
 
-function Sidebar() {
+function Sidebar({ moduleNameVisibility }) {
   const location = useLocation();
   const [activePage, setactivePage] = useState("");
 
@@ -17,44 +17,51 @@ function Sidebar() {
     {
       name: "Dashboard",
       url: "dashboard",
-      icon: <DashboardIcon />
+      icon: <DashboardIcon sx={{ height: 32, fontSize: 25 }} />
     },
     {
       name: "Appointments",
       url: "appointments",
-      icon: <CalendarMonthIcon />
+      icon: <CalendarMonthIcon sx={{ height: 32, fontSize: 25 }} />
     },
     {
       name: "My Patients",
       url: "my-patients",
-      icon: <Person2Icon />
+      icon: <Person2Icon sx={{ height: 32, fontSize: 25 }} />
     },
     {
       name: "Requests",
       url: "requests",
-      icon: <PersonAddAltIcon />
+      icon: <PersonAddAltIcon sx={{ height: 32, fontSize: 25 }} />
     },
     {
       name: "Messages",
       url: "messages",
-      icon: <ForumIcon />
+      icon: <ForumIcon sx={{ height: 32, fontSize: 25 }} />
     },
     {
       name: "Blogs",
       url: "blogs",
-      icon: <ViewQuiltIcon />
+      icon: <ViewQuiltIcon sx={{ height: 32, fontSize: 25 }} />
     },
     {
       name: "Payments",
       url: "payments",
-      icon: <PaymentIcon />
+      icon: <PaymentIcon sx={{ height: 32, fontSize: 25 }} />
     },
   ];
 
 
   useEffect(() => {
-    const currentPage = location.pathname.split("/")[2];
-    setactivePage(moduleMap.find(m => currentPage === m.url).url);
+    const paths = location.pathname.split("/");
+    
+    if (paths.length == 2 || paths[2] == '')
+      setactivePage("dashboard");
+    else {
+      const currentPage = paths[2];
+      if (currentPage != "patientHistory")
+        setactivePage(moduleMap.find(m => currentPage === m.url).url);
+    }
   }, [location.pathname]);
 
   return (
@@ -63,7 +70,7 @@ function Sidebar() {
         <Link key={m.url} to={`/app/${m.url}`} style={{ textDecoration: 'none', color: 'inherit', margin: "0 15px", borderRadius: "4px", backgroundColor: activePage === m.url ? "#227d9f" : "inherit" }}>
           <Box sx={{ display: 'flex', cursor: 'pointer', alignItems: 'center', gap: 2, mx: 2, py: 2 }}>
             {m.icon}
-            <Typography fontWeight={400} variant='h6'>{m.name}</Typography>
+            {moduleNameVisibility && <Typography fontWeight={400} variant='h6'>{m.name}</Typography>}
           </Box>
         </Link>
       ))}

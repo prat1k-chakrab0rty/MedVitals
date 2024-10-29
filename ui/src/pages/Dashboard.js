@@ -3,7 +3,7 @@ import React from 'react';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Person2Icon from '@mui/icons-material/Person2';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import ForumIcon from '@mui/icons-material/Forum';
 import CallIcon from '@mui/icons-material/Call';
@@ -19,16 +19,19 @@ const cards = [
   {
     title: 'Total Appointments',
     icon: <CalendarMonthIcon />,
+    path: '/app/appointments',
     val: 205
   },
   {
     title: 'Total Patients',
     icon: <Person2Icon />,
+    path: '/app/my-patients',
     val: 13
   },
   {
     title: 'Appointment Requests',
     icon: <PersonAddAltIcon />,
+    path: '/app/requests',
     val: 10
   },
 ];
@@ -48,10 +51,11 @@ const fellowDoctors = [
   },
 ];
 
+const date = new Intl.DateTimeFormat('en-GB', { weekday: 'short', month: "short", day: "2-digit" }).format(new Date()).split(" ")
+
 function createData(id, patient, gender, age, date, time, mode) {
   return { id, patient, gender, age, date, time, mode };
 }
-const date = new Intl.DateTimeFormat('en-GB', { weekday: 'short', month: "short", day: "2-digit" }).format(new Date()).split(" ")
 const rows = [
   createData(458768, { name: "Pooja", img: "NA" }, "Female", 28, "31.10.2024", "10:00 a.m", "video"),
   createData(458771, { name: "Ashish", img: "NA" }, "Male", 22, "31.10.2024", "10:00 a.m", "text"),
@@ -63,6 +67,7 @@ const rows = [
 ];
 
 function Dashboard() {
+  const navigate = useNavigate();
   return (
     <Box>
       <Typography variant='h6' component="div" sx={{ color: '#3d3c3c', mb: 1.5 }}>Dashboard</Typography>
@@ -72,17 +77,19 @@ function Dashboard() {
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             {cards.map(card => (
               <Card key={card.title} sx={{ cursor: 'pointer', boxShadow: "2px 2px 2px lightgrey", border: 'none' }} variant="outlined">
-                <CardContent>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '360px' }}>
-                    <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20, fontWeight: 500 }}>
-                      {card.title}
-                    </Typography>
-                    <Box sx={{ color: '#00b7b4' }}>
-                      {card.icon}
+                <Link to={card.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <CardContent>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '360px' }}>
+                      <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20, fontWeight: 500 }}>
+                        {card.title}
+                      </Typography>
+                      <Box sx={{ color: '#00b7b4' }}>
+                        {card.icon}
+                      </Box>
                     </Box>
-                  </Box>
-                  <Typography sx={{ fontWeight: 500, mb: 1.5, fontSize: 30 }}>{card.val}</Typography>
-                </CardContent>
+                    <Typography sx={{ fontWeight: 500, mb: 1.5, fontSize: 30 }}>{card.val}</Typography>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </Box>
@@ -155,7 +162,7 @@ function Dashboard() {
               </TableHead>
               <TableBody>
                 {rows.map((row) => (
-                  <TableRow
+                  <TableRow onClick={() => navigate("/app/patientHistory")}
                     key={row.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 }, cursor: 'pointer' }}
                   >

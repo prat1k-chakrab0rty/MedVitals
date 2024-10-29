@@ -17,6 +17,7 @@ import Requests from "./pages/Requests";
 import Messages from "./pages/Messages";
 import Payments from "./pages/Payments";
 import Blogs from "./pages/Blogs";
+import PatientHistory from "./pages/PatientHistory";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "payments",
         element: <Payments />
+      },
+      {
+        path: "patientHistory",
+        element: <PatientHistory />
       },
     ]
   }
