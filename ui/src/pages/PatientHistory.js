@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Patient from '../assets/images/Patient.png';
 import MeditationIcon from '../assets/images/Meditation.png';
+import PdfLogo from '../assets/images/PdfLogo.png';
 import NeedleIcon from '../assets/images/Needle.png';
 import PillIcon from '../assets/images/Pill.png';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import ForumIcon from '@mui/icons-material/Forum';
 import CallIcon from '@mui/icons-material/Call';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function CustomTabPanel(props) {
@@ -76,9 +78,9 @@ function PatientHistory() {
                     </Box>
                 </Box>
                 <CustomTabPanel value={value} index={0} >
-                    <Box sx={{ display: 'flex', flexDirection: 'column', padding: 0, gap: 3 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', padding: 0, gap: 3,height:'662px' }}>
                         <Box sx={{ display: 'flex', gap: 3 }}>
-                            <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 555 }}>
+                            <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 556.5 }}>
                                 <Typography variant='h6' component="div" sx={{ color: 'text.secondary', mb: 1.5 }} fontSize={18}>Appointment Details</Typography>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                                     <Chip sx={{ height: 60, width: 600, backgroundColor: '#f5f5f9', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
@@ -101,7 +103,7 @@ function PatientHistory() {
                                     } />
                                 </Box>
                             </Box>
-                            <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 555 }}>
+                            <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 556.5 }}>
                                 <Typography variant='h6' component="div" sx={{ color: 'text.secondary', mb: 1.5 }} fontSize={18}>Medications</Typography>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                                     <Chip sx={{ height: 60, width: 600, backgroundColor: '#f5f5f9', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
@@ -141,7 +143,7 @@ function PatientHistory() {
                             </Box>
                         </Box>
                         <Box sx={{ display: 'flex', gap: 3 }}>
-                            <Box sx={{ backgroundColor: 'white', borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 587 }}>
+                            <Box sx={{ backgroundColor: 'white', borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 588.5 }}>
                                 <Typography variant='h6' component="div" sx={{ color: 'text.secondary', p: 2 }} fontSize={18}>Medical History</Typography>
                                 <List sx={{ padding: 0 }}>
                                     <ListItem divider disablePadding>
@@ -191,7 +193,7 @@ function PatientHistory() {
                                     </ListItem> */}
                                 </List>
                             </Box>
-                            <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 555 }}>
+                            <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", width: 556.5 }}>
                                 <Typography variant='h6' component="div" sx={{ color: 'text.secondary', mb: 1.5 }} fontSize={18}>Notes</Typography>
                                 <Typography>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ab maxime ut. Accusamus inventore omnis reprehenderit! Ratione quos eaque iste sint ea necessitatibus deleniti eum sapiente consequuntur veniam, ipsum reprehenderit.e
@@ -201,10 +203,156 @@ function PatientHistory() {
                     </Box>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={1}>
-                    Item Two
+                    <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", display: 'flex', flexDirection: 'column', gap: 1,height:'630px',width:'60.9vw' }}>
+                        <Typography variant='h6' component="div" sx={{ color: 'text.secondary', py: 1 }} fontSize={18}>Consultation Summary Report</Typography>
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>General Checkup by Dr. Tushar</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>General Checkup by Dr. Tushar</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>General Checkup by Dr. Tushar</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>General Checkup by Dr. Tushar</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+
+                    </Box>
                 </CustomTabPanel>
                 <CustomTabPanel value={value} index={2}>
-                    Item Three
+                <Box sx={{ backgroundColor: 'white', p: 2, borderRadius: 2, boxShadow: "0px 2px 2px lightgrey", display: 'flex', flexDirection: 'column', gap: 1,height:'630px',width:'60.9vw' }}>
+                        <Typography variant='h6' component="div" sx={{ color: 'text.secondary', py: 1 }} fontSize={18}>Reports</Typography>
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>Blood Report</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>Urine Report</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>Thyroid Report</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>Scan Report</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>Blood Report</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+                        <Chip sx={{ height: 60, width: "100%", borderRadius: "4px", cursor: 'pointer', backgroundColor: '#e7f0f5', color: 'text.secondary', '.MuiChip-label': { width: "100%" } }} label={
+                            <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                    <Box>
+                                        <img src={PdfLogo} alt="pdf-logo" />
+                                    </Box>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.1 }}>
+                                        <Typography variant='h5' sx={{ fontSize: 15 }}>Fevicol Report</Typography>
+                                        <span style={{ fontWeight: 300, fontSize: 12 }}>1.5 MB</span>
+                                    </Box>
+                                </Box>
+                                <CloseIcon />
+                            </Box>
+                        } />
+
+                    </Box>
                 </CustomTabPanel>
             </Box >
         </Box >
