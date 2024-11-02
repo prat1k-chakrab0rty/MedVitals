@@ -26,7 +26,7 @@ function Sidebar({ moduleNameVisibility }) {
     },
     {
       name: "My Patients",
-      url: "my-patients",
+      url: "my-patients",//make this url an array as my-patients and patientHistory endpoint in sidebar blogs should be active
       icon: <Person2Icon sx={{ height: 32, fontSize: 25 }} />
     },
     {
@@ -41,7 +41,7 @@ function Sidebar({ moduleNameVisibility }) {
     },
     {
       name: "Blogs",
-      url: "blogs",
+      url: "blogs",//make this url an array as blogs and blog endpoint in sidebar blogs should be active
       icon: <ViewQuiltIcon sx={{ height: 32, fontSize: 25 }} />
     },
     {
@@ -54,12 +54,13 @@ function Sidebar({ moduleNameVisibility }) {
 
   useEffect(() => {
     const paths = location.pathname.split("/");
-    
+
     if (paths.length == 2 || paths[2] == '')
       setactivePage("dashboard");
     else {
       const currentPage = paths[2];
-      if (currentPage != "patientHistory")
+      console.log(currentPage);
+      if (currentPage != "patientHistory" && currentPage != "blog")
         setactivePage(moduleMap.find(m => currentPage === m.url).url);
     }
   }, [location.pathname]);
