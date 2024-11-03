@@ -5,6 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useNavigate } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 
 
 const BlogCard = () => {
@@ -35,9 +36,14 @@ const BlogCard = () => {
 }
 
 function Blogs() {
+  const navigate = useNavigate();
+
   return (
     <Box>
-      <Typography variant='h6' component="div" sx={{ color: '#3d3c3c', mb: 1.5 }}>Your blogs</Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
+        <Typography variant='h6' component="div" sx={{ color: '#3d3c3c', verticalAlign: 'middle' }}>Your blogs</Typography>
+        <Button onClick={() => navigate("/app/addBlog")} sx={{ backgroundColor: '#f6d9c3', fontSize: 13, textTransform: 'none', color: '#d25f00' }}><AddIcon sx={{ fontSize: 12, mr: 1 }} />New Blog</Button>
+      </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
         <BlogCard />
         <BlogCard />

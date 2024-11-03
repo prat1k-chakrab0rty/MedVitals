@@ -19,6 +19,7 @@ import Payments from "./pages/Payments";
 import Blogs from "./pages/Blogs";
 import PatientHistory from "./pages/PatientHistory";
 import Blog from "./pages/Blog";
+import AddBlog from "./pages/AddBlog";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />
+      },
+      {
+        path: "addBlog",
+        element: <AddBlog />
       },
       {
         path: "payments",
