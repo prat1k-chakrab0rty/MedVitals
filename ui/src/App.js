@@ -20,6 +20,9 @@ import Blogs from "./pages/Blogs";
 import PatientHistory from "./pages/PatientHistory";
 import Blog from "./pages/Blog";
 import AddBlog from "./pages/AddBlog";
+import FellowDoctors from "./pages/FellowDoctors";
+import DoctorProfile from "./pages/DoctorProfile";
+import ConsultationSummary from "./pages/ConsultationSummary";
 
 const router = createBrowserRouter([
   {
@@ -56,8 +59,20 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
+        path: "fellowDoctors",
+        element: <FellowDoctors />,
+      },
+      {
+        path: "doctor",
+        element: <DoctorProfile />,
+      },
+      {
         path: "appointments",
         element: <Appointments />
+      },
+      {
+        path: "consultationSummary",
+        element: <ConsultationSummary />
       },
       {
         path: "my-patients",

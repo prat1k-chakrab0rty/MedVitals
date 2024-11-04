@@ -60,7 +60,7 @@ function Sidebar({ moduleNameVisibility }) {
     else {
       const currentPage = paths[2];
       console.log(currentPage);
-      if (currentPage != "patientHistory" && currentPage != "blog" && currentPage != "addBlog")
+      if (currentPage != "patientHistory" && currentPage != "blog" && currentPage != "addBlog" && currentPage != "fellowDoctors" && currentPage != "doctor" && currentPage != "consultationSummary")
         setactivePage(moduleMap.find(m => currentPage === m.url).url);
     }
   }, [location.pathname]);

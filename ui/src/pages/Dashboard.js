@@ -196,7 +196,7 @@ function Dashboard() {
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           {/* Fellow Doctor Card */}
           <Box sx={{ backgroundColor: '#ffffff', padding: 2, pb: 1, borderRadius: '8px', boxShadow: "2px 2px 2px lightgrey", mb: 2.2 }}>
-            <Typography variant='h6' sx={{ color: 'text.secondary', fontWeight: 500, mb: 2 }}>
+            <Typography variant='h6' onClick={() => navigate("/app/fellowDoctors")} sx={{ color: 'text.secondary', fontWeight: 500, mb: 2, cursor: 'pointer' }}>
               Fellow Doctors
             </Typography>
             {/* right grid */}
@@ -204,7 +204,7 @@ function Dashboard() {
               {/* fellow doctor's card starts here */}
               {
                 fellowDoctors.map((doctor, i) => (
-                  <Box key={i} sx={{ cursor: 'pointer' }}>
+                  <Box onClick={() => navigate("/app/doctor")} key={i} sx={{ cursor: 'pointer' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, ml: 2, my: 1.5, mb: 0.5 }}>
                       <Avatar sx={{ bgcolor: 'gray' }}>
                         {doctor.name[0]}
