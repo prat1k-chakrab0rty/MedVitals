@@ -9,58 +9,60 @@ import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import PaymentIcon from '@mui/icons-material/Payment';
 import { Link, useLocation } from 'react-router-dom';
 
+const moduleMap = [
+  {
+    name: "Dashboard",
+    url: "dashboard",
+    icon: <DashboardIcon sx={{ height: 32, fontSize: 25 }} />
+  },
+  {
+    name: "Appointments",
+    url: "appointments",
+    icon: <CalendarMonthIcon sx={{ height: 32, fontSize: 25 }} />
+  },
+  {
+    name: "My Patients",
+    url: "my-patients",//make this url an array as my-patients and patientHistory endpoint in sidebar blogs should be active
+    icon: <Person2Icon sx={{ height: 32, fontSize: 25 }} />
+  },
+  {
+    name: "Requests",
+    url: "requests",
+    icon: <PersonAddAltIcon sx={{ height: 32, fontSize: 25 }} />
+  },
+  {
+    name: "Messages",
+    url: "messages",
+    icon: <ForumIcon sx={{ height: 32, fontSize: 25 }} />
+  },
+  {
+    name: "Blogs",
+    url: "blogs",//make this url an array as blogs and blog endpoint in sidebar blogs should be active
+    icon: <ViewQuiltIcon sx={{ height: 32, fontSize: 25 }} />
+  },
+  {
+    name: "Payments",
+    url: "payments",
+    icon: <PaymentIcon sx={{ height: 32, fontSize: 25 }} />
+  },
+];
+
 function Sidebar({ moduleNameVisibility }) {
   const location = useLocation();
   const [activePage, setactivePage] = useState("");
 
-  const moduleMap = [
-    {
-      name: "Dashboard",
-      url: "dashboard",
-      icon: <DashboardIcon sx={{ height: 32, fontSize: 25 }} />
-    },
-    {
-      name: "Appointments",
-      url: "appointments",
-      icon: <CalendarMonthIcon sx={{ height: 32, fontSize: 25 }} />
-    },
-    {
-      name: "My Patients",
-      url: "my-patients",//make this url an array as my-patients and patientHistory endpoint in sidebar blogs should be active
-      icon: <Person2Icon sx={{ height: 32, fontSize: 25 }} />
-    },
-    {
-      name: "Requests",
-      url: "requests",
-      icon: <PersonAddAltIcon sx={{ height: 32, fontSize: 25 }} />
-    },
-    {
-      name: "Messages",
-      url: "messages",
-      icon: <ForumIcon sx={{ height: 32, fontSize: 25 }} />
-    },
-    {
-      name: "Blogs",
-      url: "blogs",//make this url an array as blogs and blog endpoint in sidebar blogs should be active
-      icon: <ViewQuiltIcon sx={{ height: 32, fontSize: 25 }} />
-    },
-    {
-      name: "Payments",
-      url: "payments",
-      icon: <PaymentIcon sx={{ height: 32, fontSize: 25 }} />
-    },
-  ];
+  
 
 
   useEffect(() => {
     const paths = location.pathname.split("/");
 
-    if (paths.length == 2 || paths[2] == '')
+    if (paths.length === 2 || paths[2] === '')
       setactivePage("dashboard");
     else {
       const currentPage = paths[2];
       console.log(currentPage);
-      if (currentPage != "patientHistory" && currentPage != "blog" && currentPage != "addBlog" && currentPage != "fellowDoctors" && currentPage != "doctor" && currentPage != "consultationSummary")
+      if (currentPage !== "patientHistory" && currentPage !== "blog" && currentPage !== "addBlog" && currentPage !== "fellowDoctors" && currentPage !== "doctor" && currentPage !== "consultationSummary" && currentPage !== "myProfile" && currentPage !== "notificationSettings" && currentPage !== "notifications")
         setactivePage(moduleMap.find(m => currentPage === m.url).url);
     }
   }, [location.pathname]);

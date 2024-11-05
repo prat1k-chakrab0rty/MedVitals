@@ -23,6 +23,9 @@ import AddBlog from "./pages/AddBlog";
 import FellowDoctors from "./pages/FellowDoctors";
 import DoctorProfile from "./pages/DoctorProfile";
 import ConsultationSummary from "./pages/ConsultationSummary";
+import MyProfile from "./pages/MyProfile";
+import NotificationSettings from "./pages/NotificationSettings";
+import Notifications from "./pages/Notifications";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +60,18 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "myProfile",
+        element: <MyProfile />,
+      },
+      {
+        path: "notificationSettings",
+        element: <NotificationSettings />,
+      },
+      {
+        path: "notifications",
+        element: <Notifications />,
       },
       {
         path: "fellowDoctors",

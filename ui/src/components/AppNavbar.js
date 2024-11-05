@@ -12,11 +12,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
-function AppNavbar({moduleNameVisibility,setmoduleNameVisibility}) {
-
+function AppNavbar({ moduleNameVisibility, setmoduleNameVisibility }) {
+  const navigate = useNavigate();
   const [anchorElementForNotificationMenu, setAnchorElementForNotificationMenu] = useState(null);
   const [anchorElementForProfileMenu, setAnchorElementForProfileMenu] = useState(null);
   const openNotificationMenu = Boolean(anchorElementForNotificationMenu);
@@ -40,8 +40,8 @@ function AppNavbar({moduleNameVisibility,setmoduleNameVisibility}) {
       <AppBar sx={{ backgroundColor: '#ffffff', color: "#000000" }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', maxWidth: '100', marginX: 2, alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <Logo logo={BrandLogo} title={BrandName} brightVal={"100%"} gapVal={4} />
-            <MenuIcon onClick={()=>setmoduleNameVisibility(!moduleNameVisibility)} sx={{ cursor: 'pointer' }} />
+            <Logo pointer={true} logo={BrandLogo} title={BrandName} brightVal={"100%"} gapVal={4} />
+            <MenuIcon onClick={() => setmoduleNameVisibility(!moduleNameVisibility)} sx={{ cursor: 'pointer' }} />
           </Box>
           <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -106,7 +106,7 @@ function AppNavbar({moduleNameVisibility,setmoduleNameVisibility}) {
                   </Box>
                 </MenuItem>
                 <MenuItem divider sx={{ py: 1.5, display: 'flex', justifyContent: 'center' }} onClick={handleClose}>
-                  <Typography fontSize={12} fontWeight={500} color='primary' textAlign="center" component="div" variant='p'>View All</Typography>
+                  <Typography onClick={() => navigate("/app/notifications")} fontSize={12} fontWeight={500} color='primary' textAlign="center" component="div" variant='p'>View All</Typography>
                 </MenuItem>
               </Menu>
               {/* Notification Menu ends here */}
@@ -148,11 +148,11 @@ function AppNavbar({moduleNameVisibility,setmoduleNameVisibility}) {
                   'aria-labelledby': 'profile-button',
                 }}
               >
-                <MenuItem sx={{ py: 1, display: 'flex', gap: 3, alignItems: 'center', justifyContent: 'space-between' }} divider>
+                <MenuItem onClick={() => { navigate("/app/myProfile"); handleClose(); }} sx={{ py: 1, display: 'flex', gap: 3, alignItems: 'center', justifyContent: 'space-between' }} divider>
                   <Typography variant='p' sx={{ fontSize: 15 }}>My Profile</Typography>
                   <AccountCircleIcon sx={{ color: '#445363' }} />
                 </MenuItem>
-                <MenuItem sx={{ py: 1, display: 'flex', gap: 3, alignItems: 'center', justifyContent: 'space-between' }} divider>
+                <MenuItem onClick={() => { navigate("/app/notificationSettings"); handleClose(); }} sx={{ py: 1, display: 'flex', gap: 3, alignItems: 'center', justifyContent: 'space-between' }} divider>
                   <Typography variant='p' sx={{ fontSize: 15 }}>Notification Settings</Typography>
                   <SettingsIcon sx={{ color: '#445363' }} />
                 </MenuItem>
