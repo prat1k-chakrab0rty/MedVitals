@@ -26,6 +26,7 @@ import ConsultationSummary from "./pages/ConsultationSummary";
 import MyProfile from "./pages/MyProfile";
 import NotificationSettings from "./pages/NotificationSettings";
 import Notifications from "./pages/Notifications";
+import InitialPatientDetails from "./pages/InitialPatientDetails";
 
 const router = createBrowserRouter([
   {
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
       {
         path: "patientHistory",
         element: <PatientHistory />
+      },
+      // patient pages
+      {
+        path: "patientInfo",
+        element: <InitialPatientDetails />
       },
     ]
   }

@@ -1,15 +1,7 @@
 import { Alert, Avatar, Box, Button, Chip, FormHelperText, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Tab, Tabs, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Patient from '../assets/images/Patient.png';
-import MeditationIcon from '../assets/images/Meditation.png';
 import PdfLogo from '../assets/images/PdfLogo.png';
-import NeedleIcon from '../assets/images/Needle.png';
-import PillIcon from '../assets/images/Pill.png';
-import VideocamIcon from '@mui/icons-material/Videocam';
-import ForumIcon from '@mui/icons-material/Forum';
-import CallIcon from '@mui/icons-material/Call';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CloseIcon from '@mui/icons-material/Close';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';

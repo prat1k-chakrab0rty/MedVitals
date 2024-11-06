@@ -23,10 +23,10 @@ function Layout() {
                 <AppNavbar moduleNameVisibility={moduleNameVisibility} setmoduleNameVisibility={setmoduleNameVisibility} />
             </Grid>
             <Grid container sx={{ flexGrow: 1, overflow: 'auto' }}>
-                <Grid sx={{ height: '100%', overflowY: 'hidden', flexShrink: 0, width: moduleNameVisibility ? '12%' : '4.5%' }}>
+                {moduleName !== "patientInfo" && <Grid sx={{ height: '100%', overflowY: 'hidden', flexShrink: 0, width: moduleNameVisibility ? '12%' : '4.5%' }}>
                     <Sidebar moduleNameVisibility={moduleNameVisibility} />
-                </Grid>
-                <Grid sx={{ height: '100%', flexGrow: 1, overflowY: 'auto', padding: moduleName === "messages" ? 3 : 2, backgroundColor: moduleName === "messages" ? '#e7f0f5' : '#f5f5f9', width: moduleNameVisibility ? '88%' : '95.5%' }}>
+                </Grid>}
+                <Grid sx={{ height: '100%', flexGrow: 1, overflowY: 'auto', padding: moduleName === "messages" ? 3 : 2, backgroundColor: moduleName === "messages" ? '#e7f0f5' : '#f5f5f9', minwidth: moduleNameVisibility ? '88%' : '95.5%' }}>
                     <Outlet sx={{ width: "100%" }} />
                 </Grid>
             </Grid>
