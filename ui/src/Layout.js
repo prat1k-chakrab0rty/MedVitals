@@ -26,7 +26,7 @@ function Layout() {
                 {moduleName !== "patientInfo" && <Grid sx={{ height: '100%', overflowY: 'hidden', flexShrink: 0, width: moduleNameVisibility ? '12%' : '4.5%' }}>
                     <Sidebar moduleNameVisibility={moduleNameVisibility} />
                 </Grid>}
-                <Grid sx={{ height: '100%', flexGrow: 1, overflowY: 'auto', padding: moduleName === "messages" ? 3 : 2, backgroundColor: moduleName === "messages" ? '#e7f0f5' : '#f5f5f9', minwidth: moduleNameVisibility ? '88%' : '95.5%' }}>
+                <Grid sx={{ height: '100%', flexGrow: 1, overflowY: 'auto', padding: moduleName === "messages" ? 3 : 2, backgroundColor: moduleName === "messages" ? '#e7f0f5' : '#f5f5f9', maxWidth: moduleName === "patientInfo" ? '100%' : moduleNameVisibility ? '88%' : '95.5%' }}>
                     <Outlet sx={{ width: "100%" }} />
                 </Grid>
             </Grid>

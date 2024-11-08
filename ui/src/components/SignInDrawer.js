@@ -10,6 +10,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { styled } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/LocalizationProvider';
+import {  useNavigate } from 'react-router-dom';
 
 
 const roles = ["Doctor", "Patient"];
@@ -75,17 +76,19 @@ const LoginScreen = ({ setscreenFlow }) => (
 
 
 const RoleSelectionScreen = ({ activeRole, setactiveRole, setscreenFlow }) => {
-
+    const navigate=useNavigate();
+    console.log(activeRole);
+    
     return (
         <Box px={2}>
             <Box mt={8} sx={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {roles.map(role => (
-                    <Box onClick={() => setactiveRole(role)} sx={{ border: "2px solid lightgrey", borderRadius: "8px", px: 2, py: 2, boxShadow: activeRole == role && '0 2px 5px 2px lightgrey', cursor: 'pointer' }}>
+                    <Box key={role} onClick={() => setactiveRole(role)} sx={{ border: "2px solid lightgrey", borderRadius: "8px", px: 2, py: 2, boxShadow: activeRole == role && '0 2px 5px 2px lightgrey', cursor: 'pointer' }}>
                         <Typography lineHeight={1.5}> <span style={{ fontSize: "30px", fontWeight: '300' }}>I'm a</span> <br /><span style={{ fontSize: "50px", fontWeight: '400' }}>{role}</span></Typography>
                     </Box>
                 ))}
             </Box>
-            <Button onClick={() => activeRole !== "" && setscreenFlow(activeRole == "Doctor" ? 2 : 0)} sx={{ mt: 3, backgroundColor: '#00b7b4', py: "5px", fontSize: 18, fontWeight: 600, width: '100%', textTransform: 'none', color: '#ffffff', cursor: activeRole === "" ? 'not-allowed' : 'pointer' }}>Continue</Button>
+            <Button onClick={() => !activeRole || (activeRole == "Doctor"?setscreenFlow(2):navigate("/app/patientInfo"))} sx={{ mt: 3, backgroundColor: '#00b7b4', py: "5px", fontSize: 18, fontWeight: 600, width: '100%', textTransform: 'none', color: '#ffffff', cursor: activeRole === "" ? 'not-allowed' : 'pointer' }}>Continue</Button>
         </Box>
     );
 };

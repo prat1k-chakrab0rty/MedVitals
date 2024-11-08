@@ -31,7 +31,7 @@ function Navbar() {
           <Logo logo={BrandLogo} title={BrandName} brightVal={"100%"} />
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
             {pages.map((page, i) => (
-              <Link key={page} onClick={() => setactivePage(page)} to={links[i]} style={{ textDecoration: 'none' }}>
+              <Link key={page} onClick={() => { page === "About Us" && localStorage.setItem("userRole", "doctor"); setactivePage(page); }} to={links[i]} style={{ textDecoration: 'none' }}>
                 <Typography noWrap sx={{ textAlign: 'center', cursor: 'pointer', fontWeight: 600, color: activePage === page ? '#004a6a' : '#a49f9c' }}>{page}</Typography>
               </Link>
             ))}

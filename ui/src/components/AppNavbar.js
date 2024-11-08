@@ -22,6 +22,8 @@ function AppNavbar({ moduleNameVisibility, setmoduleNameVisibility }) {
   const openNotificationMenu = Boolean(anchorElementForNotificationMenu);
   const openProfileMenu = Boolean(anchorElementForProfileMenu);
 
+  const userRole = localStorage.getItem("userRole");
+
   const handleNotificationClick = (event) => {
     setAnchorElementForNotificationMenu(event.currentTarget);
   };
@@ -112,8 +114,8 @@ function AppNavbar({ moduleNameVisibility, setmoduleNameVisibility }) {
               {/* Notification Menu ends here */}
               <Typography sx={{ fontSize: 40, fontWeight: 200, color: '#e5f8f7', mx: 1 }} variant='h6'>|</Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', ml: 2 }}>
-                <Typography pb={0.3} variant='p' component="div">Dr. Parth</Typography>
-                <Typography sx={{ color: '#ababab', fontSize: 12 }} variant='p' component="div">Doctor</Typography>
+                <Typography pb={0.3} variant='p' component="div">{userRole === "doctor" ? "Dr. Parth" : "Shivangi"}</Typography>
+                {userRole === "doctor" && < Typography sx={{ color: '#ababab', fontSize: 12 }} variant='p' component="div">Doctor</Typography>}
               </Box>
               <Avatar sx={{ cursor: 'pointer' }}>P</Avatar>
               <ArrowDropDownIcon id="profile-button" aria-controls={openProfileMenu ? 'profile-menu' : undefined} aria-haspopup="true" aria-expanded={openProfileMenu ? 'true' : undefined} onClick={handleProfileClick} sx={{ color: '#445363', cursor: 'pointer' }} />
