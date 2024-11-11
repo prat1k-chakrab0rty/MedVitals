@@ -10,11 +10,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { styled } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/LocalizationProvider';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { signInWithGoogle } from '../config/firebase';
 
 
 const roles = ["Doctor", "Patient"];
 
+const loginWithGoogle = function () {
+    const user = signInWithGoogle();
+};
 
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -68,7 +72,7 @@ const LoginScreen = ({ setscreenFlow }) => (
         </form>
         <Box mt={4}>
             <Typography textAlign="center" color='text.secondary' fontWeight={500} component="div" variant='p'>OR</Typography>
-            <Button sx={{ mt: 3, border: "1px solid grey", backgroundColor: '#ffffff', py: "6px", fontSize: 16, fontWeight: 400, width: '100%', textTransform: 'none', color: '#000000' }}>Continue with Google</Button>
+            <Button onClick={loginWithGoogle} sx={{ mt: 3, border: "1px solid grey", backgroundColor: '#ffffff', py: "6px", fontSize: 16, fontWeight: 400, width: '100%', textTransform: 'none', color: '#000000' }}>Continue with Google</Button>
             <Typography mt={4} textAlign="center" component="div" fontWeight={300} fontSize={15} variant='p'>By signing in you agree to our terms and conditions</Typography>
         </Box>
     </Box>
@@ -76,9 +80,9 @@ const LoginScreen = ({ setscreenFlow }) => (
 
 
 const RoleSelectionScreen = ({ activeRole, setactiveRole, setscreenFlow }) => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     console.log(activeRole);
-    
+
     return (
         <Box px={2}>
             <Box mt={8} sx={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -88,7 +92,7 @@ const RoleSelectionScreen = ({ activeRole, setactiveRole, setscreenFlow }) => {
                     </Box>
                 ))}
             </Box>
-            <Button onClick={() => !activeRole || (activeRole == "Doctor"?setscreenFlow(2):navigate("/app/patientInfo"))} sx={{ mt: 3, backgroundColor: '#00b7b4', py: "5px", fontSize: 18, fontWeight: 600, width: '100%', textTransform: 'none', color: '#ffffff', cursor: activeRole === "" ? 'not-allowed' : 'pointer' }}>Continue</Button>
+            <Button onClick={() => !activeRole || (activeRole == "Doctor" ? setscreenFlow(2) : navigate("/app/patientInfo"))} sx={{ mt: 3, backgroundColor: '#00b7b4', py: "5px", fontSize: 18, fontWeight: 600, width: '100%', textTransform: 'none', color: '#ffffff', cursor: activeRole === "" ? 'not-allowed' : 'pointer' }}>Continue</Button>
         </Box>
     );
 };

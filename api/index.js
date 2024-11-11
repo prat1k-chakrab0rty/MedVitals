@@ -1,12 +1,20 @@
 import express from "express";
 import { createServer } from 'node:http';
 import testRoute from "./routes/test.js";
+import authRoute from "./routes/auth.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import mongoose from "mongoose";
 
 const app = express();
 
 const server = createServer(app);
+
+mongoose.connect("mongodb+srv://pratik-c:Pratik-C@main.u5gy3.mongodb.net/?retryWrites=true&w=majority&appName=main").then((result) => {
+    console.log('connected to Mongodb');
+}).catch((err) => {
+    console.error(err);
+});
 
 app.use(express.json());
 
@@ -16,6 +24,7 @@ app.use(cors());
 
 
 app.use("/api/test", testRoute);
+app.use("/api/auth", authRoute);
 
 
 //error handling middleware
